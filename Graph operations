@@ -1,1 +1,34 @@
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Graph graph1 = new Graph("input3.txt") ;
+		Graph graph2 = new Graph("input4.txt") ;
+		//System.out.println(graph.getHead().get(0).containsEdge("2"));
+		/*
+		Edge e=graph.getHead().get(0).getSuccessor();
+		while(e!=null)
+		{
+			System.out.println(e.getTarget_vertex());
+			e=e.getSuccessor();
+		}
+		*/
+		Graph graph =GraphOperations.edgeInterchange(graph1, "0","1","3","2");
+		graph.deleteEdge("0","1");
+		for(int i=0; i<graph.getHead().size();i++){
+			Edge e=graph.getHead().get(i).getSuccessor();
+			System.out.println("Source Vertex:" + graph.getHead().get(i).getV_id());
+			while(e!=null)
+			{
+				System.out.println(e.getTarget_vertex());
+				e=e.getSuccessor();
+			}
+		}
+		
+	}
+
+}
